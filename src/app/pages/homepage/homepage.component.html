@@ -1,0 +1,39 @@
+<form [formGroup]="programForm">
+    <div class="search-form" [ngClass]="{'active': isSearchEnabled}">
+        <div class="container">
+            <div class="row">
+                <div class="logo">
+                    <img src="../../../assets/images/logo.svg" />
+                </div>
+                <div class="content">
+                    <h3>Github Searcher</h3>
+                    <p>Search users or repositories below</p>
+                </div>
+            </div>
+        
+            <div class="row search-area">
+                <div class="search-box">
+                    <input type="text" placeholder="Start typing to search" formControlName="search" (keydown)="search()" />
+                </div>
+                <div class="types-dropdown">
+                    <select (change)="onChangeSearchType($event)">
+                        <option value="users">Users</option>
+                        <option value="repositories">Repositories</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="listing" [ngClass]="{'active': isSearchEnabled}">
+    <div class="container" *ngIf="data">
+        <p class="p-y-10" *ngIf="data.items">{{data.total_count}} results found</p>
+        <p class="error" *ngIf="error">{{error}}</p>
+        <app-listing [searchType]="searchType" [data]="data.items"></app-listing>
+    </div>
+
+    <div class="container" *ngIf="!data">
+        <img class="loader" src="../../../assets/images/loader.gif" />
+    </div>
+</div>

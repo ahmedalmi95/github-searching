@@ -1,0 +1,61 @@
+@import './variables.scss';
+@import './mixins.scss';
+
+h1, h2, h3, h4, h5, h6, p, ul {
+    margin: 0 !important;
+}
+
+input, select {
+    border: 1px solid #cccccc;
+    border-radius: 4px;
+    padding: 10px 5px;
+}
+
+.container {
+    margin: 0 5%;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    @include breakpoint(sm){
+        display: block;
+        text-align: center;
+    }
+}
+
+.fourth {
+    width: 23%;
+    @include breakpoint(md){
+        width: 47%;
+    }
+    @include breakpoint(sm){
+        width: 100%;
+    }
+}
+
+.half {
+    width: 50%;
+    @include breakpoint(sm){
+        width: 100%;
+    }
+}
+
+.full {
+    width: 100%;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.p-x-10 { padding: 0 10px; }
+.p-y-10 { padding: 10px 0; }
+.p-x-20 { padding: 0 10px; }
+.p-y-20 { padding: 10px 0; }
+
+.loader {
+    width: 350px;
+    display: block;
+    margin: auto;
+}
